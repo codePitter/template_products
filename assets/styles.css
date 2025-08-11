@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+:root {
+    --brand: #0BBF7D; /* acento esmeralda */
+    --brand-dark: #0a9f67; /* hover */
+    --txt: #111827; /* texto base */
+    --muted: #6b7280; /* texto secundario */
+    --bg: #fafdfb; /* fondo suave */
+    --card: #ffffff; /* fondo cartas */
+    --ring: rgba(11,191,125,.25);
+}
+
+html, body {
+    height: 100%;
+    background: var(--bg);
+    color: var(--txt);
+}
+
+body {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+h1, h2, h3, .brand {
+    font-family: Poppins, Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+/* NAV */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: .2px
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    min-height: 72vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+    .hero:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1520975922284-9d6b68d0a6c5?q=80&w=1600&auto=format&fit=crop') center no-repeat;
+        filter: saturate(1.05) contrast(1.05);
+        opacity: .22;
+    }
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.glass {
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,.65);
+    border: 1px solid rgba(17,24,39,.06);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(15,21,60,.10);
+}
+
+.btn-brand {
+    background: var(--brand);
+    color: #fff;
+    border: none;
+    padding: .9rem 1.2rem;
+    border-radius: 14px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    transition: transform .15s ease, filter .2s ease, box-shadow .2s ease;
+    box-shadow: 0 10px 30px rgba(11,191,125,.28);
+}
+
+    .btn-brand:hover {
+        filter: brightness(.95);
+        transform: translateY(-1px);
+        box-shadow: 0 14px 34px rgba(11,191,125,.34);
+    }
+
+section {
+    padding: clamp(48px, 6vw, 88px) 0;
+}
+
+/* PRODUCTOS */
+.card-product {
+    background: var(--card);
+    border: 1px solid #e6f3ee;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .2s ease;
+    position: relative
+}
+
+    .card-product:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(0,0,0,.06);
+    }
+
+    .card-product img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+    }
+
+.price {
+    color: var(--brand);
+    font-weight: 800;
+}
+
+.badge-sale {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #111;
+    color: #fff;
+    border-radius: 999px;
+    padding: .25rem .6rem;
+    font-size: .8rem
+}
+
+/* FILTROS */
+.filters .btn {
+    border-radius: 999px
+}
+
+    .filters .btn.active {
+        background: var(--brand);
+        color: #fff;
+        border-color: var(--brand)
+    }
+
+/* BENEFICIOS */
+.perk {
+    border: 1px solid #e6f3ee;
+    background: #fff;
+    border-radius: 16px;
+    padding: 1rem
+}
+
+/* FAQ */
+.accordion-button:focus {
+    box-shadow: 0 0 0 .25rem var(--ring)
+}
+
+/* FOOTER */
+footer {
+    background: #0f1020;
+    color: #cfe7de;
+}
+
+    footer a {
+        color: #fff;
+        text-decoration: none
+    }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+/* WHATSAPP FLOAT */
+.wa-float {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    background: #25D366;
+    color: #fff;
+    border-radius: 999px;
+    padding: .8rem 1rem;
+    box-shadow: 0 14px 34px rgba(37,211,102,.35);
+    font-weight: 700;
+}
+
+    .wa-float img {
+        width: 24px;
+        height: 24px
+    }
+
+    .wa-float:hover {
+        filter: brightness(.95)
+    }
+
+/* reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: all .6s ease
+}
+
+    .reveal.show {
+        opacity: 1;
+        transform: none
+    }
