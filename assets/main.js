@@ -1,14 +1,14 @@
-// ================== CONFIG ==================
-    const WHATSAPP_TEL = '5493410000000'; // Cambiar (con país, sin +)
+ï»¿// ================== CONFIG ==================
+    const WHATSAPP_TEL = '5493410000000'; // Cambiar (con paÃ­s, sin +)
     const CURRENCY = 'ARS';
     const PRODUCTS = [
       {
         id: 'p1',
-        title: 'Remera básica verde',
+        title: 'Remera bÃ¡sica verde',
         price: 9500,
         category: 'Ropa',
-        img: 'https://images.unsplash.com/photo-1520975619010-38f0455c3fd4?q=80&w=1200&auto=format&fit=crop',
-        desc: 'Algodón peinado · Talles S–XL',
+        img: 'assets/img/remera_verde.jpg',
+        desc: 'AlgodÃ³n 100% Â· Talles Sâ€“XL',
         sale: true
       },
       {
@@ -16,40 +16,40 @@
         title: 'Mochila urbana',
         price: 32000,
         category: 'Accesorios',
-        img: 'https://images.unsplash.com/photo-1519691548117-000f3d6431b7?q=80&w=1200&auto=format&fit=crop',
-        desc: 'Impermeable · 20L · Garantía 6 meses'
+        img: 'assets/img/mochila.jpg',
+        desc: 'Impermeable Â· 20L Â· GarantÃ­a 6 meses'
       },
       {
         id: 'p3',
-        title: 'Vaso cerámico esmaltado',
-        price: 14800,
-        category: 'Artesanías',
-        img: 'https://images.unsplash.com/photo-1463569643904-4fbae71ed917?q=80&w=1200&auto=format&fit=crop',
-        desc: 'Hecho a mano · Pieza única'
+        title: 'Mate cerÃ¡mico esmaltado',
+        price: 35000,
+        category: 'ArtesanÃ­as',
+        img: 'assets/img/mate.jpg',
+        desc: 'Hecho a mano Â· Pieza Ãºnica'
       },
       {
         id: 'p4',
         title: 'Buzo oversize arena',
         price: 19900,
         category: 'Ropa',
-        img: 'https://images.unsplash.com/photo-1516826957135-700dedea698c?q=80&w=1200&auto=format&fit=crop',
-        desc: 'Frisa suave · Talles S–XL'
+        img: 'assets/img/buzo_os_arena.jpg',
+        desc: 'Frisa suave Â· Talles Sâ€“XL'
       },
       {
         id: 'p5',
         title: 'Gorra snapback negra',
         price: 7900,
         category: 'Accesorios',
-        img: 'https://images.unsplash.com/photo-1504430364268-5f47c0b1b3c9?q=80&w=1200&auto=format&fit=crop',
-        desc: 'Ajustable · Unisex'
+        img: 'assets/img/gorra_negra_fe.jpg',
+        desc: 'Ajustable Â· Unisex'
       },
       {
         id: 'p6',
-        title: 'Vela de soja cítrica',
+        title: 'Vela de soja cÃ­trica',
         price: 5200,
-        category: 'Artesanías',
-        img: 'https://images.unsplash.com/photo-1610173827095-e9ee1f6b5c9e?q=80&w=1200&auto=format&fit=crop',
-        desc: 'Aroma natural · 200 ml'
+        category: 'ArtesanÃ­as',
+        img: 'assets/img/vela_soja_citric.jpg',
+        desc: 'Aroma natural Â· 200 ml'
       }
     ];
     // ============================================
@@ -60,7 +60,7 @@
     const fmtMoney = (n)=> new Intl.NumberFormat('es-AR', { style:'currency', currency: CURRENCY, maximumFractionDigits:0 }).format(n);
     const norm = (str)=> (str||'').toString().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 
-    // Año dinámico
+    // AÃ±o dinÃ¡mico
     $('#y').textContent = new Date().getFullYear();
 
     // Reveal on scroll
@@ -98,15 +98,15 @@
         frag.appendChild(col);
       });
       grid.appendChild(frag);
-      onScroll(); // animación para lo recién agregado
+      onScroll(); // animaciÃ³n para lo reciÃ©n agregado
     }
 
     function buyLink(p){
-      const text = encodeURIComponent(`Hola! Quiero comprar "${p.title}". ¿Disponibilidad?`);
+      const text = encodeURIComponent(`Hola! Quiero comprar "${p.title}". Â¿Disponibilidad?`);
       return `https://wa.me/${WHATSAPP_TEL}?text=${text}`;
     }
 
-    // Búsqueda + filtros
+    // BÃºsqueda + filtros
     let activeCat = 'all';
     function applyFilters(){
       const term = norm($('#q').value);
@@ -160,6 +160,16 @@
       modal.show();
     });
 
-    // Inicialización
+    // InicializaciÃ³n
     renderGrid(PRODUCTS);
     applyFilters();
+
+function matchHeight() {
+    const prevDiv = document.querySelector('.prev-div');
+    const targetImg = document.querySelector('.target-img');
+    if (prevDiv && targetImg) {
+        targetImg.style.height = prevDiv.offsetHeight + 'px';
+    }
+}
+window.addEventListener('load', matchHeight);
+window.addEventListener('resize', matchHeight);
